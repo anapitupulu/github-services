@@ -9,7 +9,6 @@ const router = express.Router();
 
 router.get('/', async (req: express.Request, res: express.Response) => {
   const org = getOrganizationName(req.originalUrl);
-  logger.log('debug', `org: ${org}`);
   try {
     const resp: AxiosResponse<IMember[]> = await axios.get(`https://api.github.com/orgs/${org}/members`);
 
@@ -37,10 +36,6 @@ router.get('/', async (req: express.Request, res: express.Response) => {
 
     await Promise.all(promises);
 
-    // logger.log('debug', membersStats[0].login);
-
-    // login, avatar url, number of followers, number of ppl they following,
-    // sorted in descending order by # of followers
     res.json(membersStats.sort((firstMember: IMemberStats, secondMember: IMemberStats) =>
       secondMember.numOfFollowers - firstMember.numOfFollowers));
 
