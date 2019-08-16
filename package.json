@@ -1,0 +1,38 @@
+{
+  "name": "github-services",
+  "version": "1.0.0",
+  "description": "A web service to interact with the repo of a Github org",
+  "main": "dist/index.js",
+  "scripts": {
+    "prebuild": "tslint -c tslint.json -p tsconfig.json",
+    "build": "tsc",
+    "prestart": "yarn build",
+    "start": "ts-node src/index.ts",
+    "dev": "./node_modules/nodemon/bin/nodemon.js",
+    "test": "yarn test"
+  },
+  "keywords": [
+    "github",
+    "comment",
+    "member"
+  ],
+  "author": "Alex Nico Napitupulu",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@types/dotenv": "^6.1.1",
+    "@types/express": "^4.17.0",
+    "@types/express-winston": "^3.0.3",
+    "@types/node": "^12.7.2",
+    "nodemon": "^1.19.1",
+    "ts-node": "^8.3.0",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3"
+  },
+  "dependencies": {
+    "axios": "^0.19.0",
+    "dotenv": "^8.0.0",
+    "express": "^4.17.1",
+    "express-winston": "^3.3.0",
+    "winston": "^3.2.1"
+  }
+}
