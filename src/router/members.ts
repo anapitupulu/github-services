@@ -7,6 +7,14 @@ import {cleanUrl, getOrganizationName} from '../utils';
 
 const router = express.Router();
 
+/**
+ * Returns statistics of all members of an organzation
+ * For each member, it will return:
+ *   - login id
+ *   - Avatar URL
+ *   - Number of followers
+ *   - Number of following
+ */
 router.get('/', async (req: express.Request, res: express.Response) => {
   const org = getOrganizationName(req.originalUrl);
   try {
@@ -16,8 +24,6 @@ router.get('/', async (req: express.Request, res: express.Response) => {
     const membersStats: IMemberStats[] = [];
 
     resp.data.forEach(async (member: IMember) => {
-      logger.log('debug', member.followers_url);
-      logger.log('debug', cleanUrl(member.following_url));
       const followersPromise = axios.get(member.followers_url);
       const followingPromise = axios.get(cleanUrl(member.following_url));
       promises.push(followersPromise);
@@ -36,16 +42,21 @@ router.get('/', async (req: express.Request, res: express.Response) => {
 
     await Promise.all(promises);
 
-    res.json(membersStats.sort((firstMember: IMemberStats, secondMember: IMemberStats) =>
-      secondMember.numOfFollowers - firstMember.numOfFollowers));
+    res.json({
+      status: 'OK',
+      data: membersStats.sort((firstMember: IMemberStats, secondMember: IMemberStats) =>
+        secondMember.numOfFollowers - firstMember.numOfFollowers),
+    });
 
   } catch (error) {
     const axiosError: AxiosError<any> = error;
     const errorMessage = axiosError.response.data;
     logger.error(errorMessage);
-    res.status(500).send(`Error processing request: ${errorMessage}`);
+    res.status(500).json({
+      status: 'FAIL',
+      message: `Error processing request: ${errorMessage}`,
+    });
   }
-
 });
 
 export {
