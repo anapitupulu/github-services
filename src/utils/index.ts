@@ -39,6 +39,6 @@ export function cleanUrl(url: string) {
  * @returns The Base 64 encoding of token
  */
 export function convertToBase64(token: string) {
-  const buffer = new Buffer(token);
+  const buffer = Buffer.from(token);
   return buffer.toString('base64');
 }
