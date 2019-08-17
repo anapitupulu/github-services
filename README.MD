@@ -178,10 +178,12 @@ In order to run the services, these variables *have to be defined* in `.env` (or
 
 1. `GITHUB_USERNAME` - your GitHub's username
 1. `GITHUB_PASSWORD` - your GitHub's password
-1. `DATABASE_URL` - the connection string for your Postgres database
+1. `DATABASE_URL` - the connection string for your Postgres database, e.g. `postgresql://user:password@localhost:5432/github`
 1. `PORT` - the port to be used for your service or 8080 if not provided
 
 GitHub's credentials are needed because GitHub limits unauthenticated request to its API.
+
+If for some reason it's not able to connect to the database, the service will quit immediately.
 
 To run, you can execute: `yarn start`
 
