@@ -189,6 +189,13 @@ To run, you can execute: `yarn start`
 
 ## Docker
 
+`Dockerfile` and `docker-compose.yml` are provided to deploy the services in a Docker container. To run the service in a Docker container, you can run:
+
+1. `docker build --tag=githubservices .` - to build a Docker image
+1. `docker run -p 4000:8080 githubservices` - to run the Docker image
+
+*Note: I am very new to Docker and may not necessarily use all the best practices to set up Docker container*
+
 # Directories
 
 ## src/
