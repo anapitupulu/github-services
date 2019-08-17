@@ -7,7 +7,7 @@
     "prebuild": "tslint -c tslint.json -p tsconfig.json",
     "build": "tsc",
     "prestart": "yarn build",
-    "start": "ts-node src/index.ts",
+    "start": "ts-node src/server.ts",
     "dev": "./node_modules/nodemon/bin/nodemon.js",
     "test": "jest"
   },
@@ -24,18 +24,27 @@
     "@types/express-winston": "^3.0.3",
     "@types/jest": "^24.0.17",
     "@types/node": "^12.7.2",
+    "@types/supertest": "^2.0.8",
     "jest": "^24.9.0",
     "nodemon": "^1.19.1",
+    "sequelize": "^4.0.0",
+    "supertest": "^4.0.2",
     "ts-jest": "^24.0.2",
     "ts-node": "^8.3.0",
     "tslint": "^5.18.0",
     "typescript": "^3.5.3"
   },
   "dependencies": {
+    "@types/sequelize": "^4.28.4",
     "axios": "^0.19.0",
+    "body-parser": "^1.19.0",
     "dotenv": "^8.0.0",
+    "envalid": "^5.0.0",
     "express": "^4.17.1",
     "express-winston": "^3.3.0",
+    "pg": "^7.12.1",
+    "reflect-metadata": "^0.1.13",
+    "sequelize-typescript": "^0.6.11",
     "winston": "^3.2.1"
   }
 }
