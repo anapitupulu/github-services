@@ -2,7 +2,7 @@
   "name": "github-services",
   "version": "1.0.0",
   "description": "A web service to interact with the repo of a Github org",
-  "main": "dist/index.js",
+  "main": "dist/server.js",
   "scripts": {
     "prebuild": "tslint -c tslint.json -p tsconfig.json",
     "build": "tsc",

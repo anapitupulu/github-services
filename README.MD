@@ -202,7 +202,7 @@ To run, you can execute: `yarn start`
 
 This is where all the source code files are located:
 
-- index.ts - the main file to setup the Express server, Router and logger  
+- app.ts - the main file to setup the Express server, Router and logger  
 - database.ts - the file to setup Postgres database
 - logger.ts - the file to setup adhoc logger
 - server.ts - the file that bootstrap the Express server
