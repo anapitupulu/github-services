@@ -183,7 +183,7 @@ In order to run the services, these variables *have to be defined* in `.env` (or
 
 GitHub's credentials are needed because GitHub limits unauthenticated request to its API.
 
-If for some reason it's not able to connect to the database, the service will quit immediately.
+If for some reason it's not able to connect to the database, the service will quit immediately. See the error log (in console) to debug database connection issue.
 
 To run, you can execute: `yarn start`
 

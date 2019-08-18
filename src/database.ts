@@ -11,7 +11,8 @@ database.authenticate()
     logger.info('Successfully connected to database');
   })
   .catch((err: Error) => {
-    logger.error('Failed to connect to database... terminate process');
+    logger.error('Failed to connect to database... terminate process:');
+    logger.error(err);
     process.exit(1);
   });
 
