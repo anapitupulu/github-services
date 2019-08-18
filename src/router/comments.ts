@@ -26,11 +26,11 @@ router.post('/', async (req: express.Request, res: express.Response, next: expre
   });
 
   if (!newComment) {
-    logger.warn(`Failed to create comment for ${organization}`);
+    logger.warn(`Failed to create comment for: ${organization}`);
     return;
   }
 
-  logger.info(`Successfully created comment for ${organization}`);
+  logger.info(`Successfully created comment for: ${organization}`);
   res.json({
     status: 'OK',
     id: newComment.id,
@@ -48,6 +48,7 @@ router.get('/', async (req: express.Request, res: express.Response, next: expres
     where: {organization},
   });
 
+  logger.info(`Successfully retrieved comments for: ${organization}`);
   res.json({
     status: 'OK',
     data: comments,
@@ -65,6 +66,7 @@ router.delete('/', async (req: express.Request, res: express.Response, next: exp
     where: {organization},
   });
 
+  logger.info(`Successfully deleted comments for: ${organization}`);
   res.json({
     status: 'OK',
     data: {

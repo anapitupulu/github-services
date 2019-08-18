@@ -42,6 +42,7 @@ router.get('/', async (req: express.Request, res: express.Response) => {
 
     await Promise.all(promises);
 
+    logger.info(`Successfully fetched members' stats for: ${org}`);
     res.json({
       status: 'OK',
       data: membersStats.sort((firstMember: IMemberStats, secondMember: IMemberStats) =>
@@ -51,6 +52,7 @@ router.get('/', async (req: express.Request, res: express.Response) => {
   } catch (error) {
     const axiosError: AxiosError<any> = error;
     const errorMessage = axiosError.response.data;
+    logger.error(`Failed to fetch members' stats for: ${org}`);
     logger.error(errorMessage);
     res.status(500).json({
       status: 'FAIL',
