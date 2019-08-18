@@ -5,6 +5,7 @@ WORKDIR //home/node/app
 
 COPY package.json /home/node/app
 COPY yarn.lock /home/node/app
+COPY .env /home/node/app
 
 RUN yarn
 

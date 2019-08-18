@@ -187,6 +187,11 @@ If for some reason it's not able to connect to the database, the service will qu
 
 To run, you can execute: `yarn start`
 
+## Run in development mode
+
+To run the web services in development mode, which supports [hot-reloading](https://nodemon.io/), you can execute: `yarn dev`.
+
+
 ## Docker
 
 `Dockerfile` and `docker-compose.yml` are provided to deploy the services in a Docker container. To run the service in a Docker container, you can run:
@@ -210,6 +215,13 @@ This is where all the source code files are located:
 ## src/\_\_tests\_\_
 
 E2E test files are located here.
+
+### src/routers
+
+All Router / endpoint code is located here. There are two endpoints:
+
+1. /orgs/&lt;organization name&gt;/comments
+1. /orgs/&lt;organization name&gt;/members
 
 ### src/models
 
@@ -253,7 +265,7 @@ The code is also linted with [TSLint](https://palantir.github.io/tslint/) to mai
 
 [Jest](https://jestjs.io/) is the testing framework used as it's modern and simple. It works really well with TypeScript/JavaScript. All the tests are located in `__tests__` folder with filenames `*.spec.ts`.
 
-To run the test, you can execute `yarn test`.
+To run the test, you can execute `yarn test`. To watch all the test files while developing, you can execute `yarn test -w`.
 
 ## Unit tests
 
