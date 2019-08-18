@@ -174,7 +174,7 @@ Error can happen if, for example, GitHub credentials are invalid or it hits the 
 
 ## Run
 
-In order to run the services, these variables *have to be defined* in `.env` (or set as environment variables):
+In order to run the services, these variables *have to be defined* in `.env` file in the root folder (or these can be set as environment variables):
 
 1. `GITHUB_USERNAME` - your GitHub's username
 1. `GITHUB_PASSWORD` - your GitHub's password
@@ -273,4 +273,4 @@ Unit tests can be found in `src/utils/__tests__/index.spec.ts`.
 
 ## E2E tests
 
-Unit tests can be found in `src/__tests__/e2e.spec.ts`.
+Unit tests can be found in `src/__tests__/e2e.spec.ts`. In order to run E2E tests, please make sure your server is running (either in production or development mode).
